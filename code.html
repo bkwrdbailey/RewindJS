@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>App Name: A Coding Project By Bailey Barton</title>
+    <title>REWIND: A Coding Project By Bailey Barton</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -22,7 +22,7 @@
     <!-- === Nav Section ===-->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img class="d-inline-block align-text-top" src="img/BaileyBarton_WhtLogo.svg" width="36" height="30"> APP NAME</a>
+        <a class="navbar-brand" href="#"><img class="d-inline-block align-text-top" src="img/BaileyBarton_WhtLogo.svg" width="36" height="30"> REWIND</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -39,7 +39,7 @@
                     <a class="nav-link active" aria-current="page" href="code.html">The Code</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" target="new_blank" href="#">Git Repo</a> <!--Link To Github-->
+                    <a class="nav-link" target="new_blank" href="https://github.com/bkwrdbailey/RewindJS">Git Repo</a> <!--Link To Github-->
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" target="new_blank" href="#">About</a> <!--Link to Portfolio page-->
@@ -51,21 +51,63 @@
     <!-- === Main Section === -->
     <main class="flex-shrink-0">
         <div class="container py-4 px-5 mt-5">
-            <h2 class="border-1 border-bottom border-dark">The Code for APP NAME</h2>
+            <h2 class="border-1 border-bottom border-dark">The Code for REWIND</h2>
             <div class="row row-cols-1 row-cols-lg-2">
                 <div class="col col-lg-8">
                     <pre class="line-numbers"><code class="language-javascript">
-                        // Calls Hello World
-                        function helloWorld() {
-                            alert("hello world");
+                        // Grabs the string value from app.html page
+                        function getString() {
+
+                            // Acquires the user's string from the form element
+                            let stringVal = document.getElementById("userString").value;
+
+                            // Passes on the string to have its reverse returned
+                            let reversedString = reverseString(stringVal)
+
+                            // Passes on the reversed string to be outputted to the user
+                            displayString(reversedString);
+                        }
+
+                        // Reverses the string given by the user
+                        function reverseString(origVal) {
+
+                            // Array or variable to hold the reverse string of the inputted string
+                            let revString = [];
+
+                            // This loop cycles through the inputted string from its end to its beginning
+                            // Each value is then inputted into a string array
+                            for (let index = origVal.length - 1; index >= 0; index--) {
+                                revString += origVal[index];
+                            }
+
+                            return revString;
+                        }
+
+                        // Displays the reversed string to the user
+                        function displayString(revString) {
+    
+                            // Here the reversed string is outputted on the app page
+                            document.getElementById("msg").innerHTML = `Your string reversed is: ${revString}`;
+
+                            // This makes the result box visible to the user, which has added flair for appeal
+                            document.getElementById("alert").classList.remove("invisible");
                         }
                     </code>
                     </pre>
                 </div>
                 <div class="col col-lg-4">
-                    <p>The Code is structured in one function</p>
-                    <h5>Hello World</h5>
-                    <p>Hellow World is a function that displays and alert with a message of "Hello World"</p>
+                    <p>The Code is structured into three functions</p>
+                    <h5>REWIND</h5>
+                    <p>The three functions are <span style="font-weight: bold">getString()</span>, <span style="font-weight: bold">reverseString()</span>, and <span style="font-weight: bold">displayString()</span>.</p>
+                    <h2>getString</h2>
+                    <p>This function handles getting the input from the user and passing it onto the other two functions as needed.</p>
+                    <h2>reverseString</h2>
+                    <p>
+                        This function loops through the user's string from the end index to the beginning index to acquire its reversed string value.
+                        The reversed value is put into an array that is returned to be used for displaying to the user.
+                    </p>
+                    <h2>displayString</h2>
+                    <p>This function handles the output of the reversed string to the user.</p>
                 </div>
             </div>
         </div>
