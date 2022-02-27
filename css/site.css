@@ -13,6 +13,9 @@ main>.container {
     padding: 60px 15px 0;
     margin-bottom: 5rem;
 }
+.btn:hover{
+    background-color: var(--primary-color);
+}
 
 code[class*="language-"],
 pre[class*="language-"] {

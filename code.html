@@ -61,11 +61,21 @@
                             // Acquires the user's string from the form element
                             let stringVal = document.getElementById("userString").value;
 
-                            // Passes on the string to have its reverse returned
-                            let reversedString = reverseString(stringVal)
+                            // Validates the user string to make sure its letters only
+                            let regex = /^[A-Za-z ]+$/;
+                            let isValid = regex.test(document.getElementById("userString").value);
 
-                            // Passes on the reversed string to be outputted to the user
-                            displayString(reversedString);
+                            if (!isValid) {
+                                alert("Only enter letters with no numbers or special characters");
+        
+                            } else if (isValid) {
+
+                                // Passes on the string to have its reverse returned
+                                let reversedString = reverseString(stringVal)
+
+                                // Passes on the reversed string to be outputted to the user
+                                displayString(reversedString);
+                            }
                         }
 
                         // Reverses the string given by the user
@@ -100,14 +110,14 @@
                     <h5>REWIND</h5>
                     <p>The three functions are <span style="font-weight: bold">getString()</span>, <span style="font-weight: bold">reverseString()</span>, and <span style="font-weight: bold">displayString()</span>.</p>
                     <h2>getString</h2>
-                    <p>This function handles getting the input from the user and passing it onto the other two functions as needed.</p>
+                    <p>This function takes in the user's input and validates it via a regular expression to make sure only a letter string is given. After the validation the value is passed onto the other functions</p>
                     <h2>reverseString</h2>
                     <p>
                         This function loops through the user's string from the end index to the beginning index to acquire its reversed string value.
                         The reversed value is put into an array that is returned to be used for displaying to the user.
                     </p>
                     <h2>displayString</h2>
-                    <p>This function handles the output of the reversed string to the user.</p>
+                    <p>This function handles the output of the reversed string to the user and reveals the hidden table that holds the reversed result.</p>
                 </div>
             </div>
         </div>

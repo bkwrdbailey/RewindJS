@@ -4,11 +4,21 @@ function getString() {
     // Acquires the user's string from the form element
     let stringVal = document.getElementById("userString").value;
 
-    // Passes on the string to have its reverse returned
-    let reversedString = reverseString(stringVal)
+    // Validates the user string to make sure its letters only
+    let regex = /^[A-Za-z ]+$/;
+    let isValid = regex.test(document.getElementById("userString").value);
 
-    // Passes on the reversed string to be outputted to the user
-    displayString(reversedString);
+    if (!isValid) {
+        alert("Only enter letters with no numbers or special characters");
+        
+    } else if (isValid) {
+
+        // Passes on the string to have its reverse returned
+        let reversedString = reverseString(stringVal)
+
+        // Passes on the reversed string to be outputted to the user
+        displayString(reversedString);
+    }
 }
 
 // Reverses the string given by the user
